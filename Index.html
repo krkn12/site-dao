@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquidity DAO</title>
+    <link rel="icon" href="src/logo.png" type="image/png"> <!-- Substitua "src/logo.png" pelo caminho real do seu ícone -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('src/gota.gif') no-repeat center center fixed; /* Adicione o caminho real do seu GIF */
+            background-size: cover;
+        }
+
+        header {
+            background-color: black;
+            color: blue;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centraliza os elementos horizontalmente */
+            opacity: 0; /* Inicia com opacidade 0 */
+            animation: fadeInUp 1s ease-out forwards; /* Adiciona animação de fade-in ao aparecer */
+        }
+
+        #title {
+            margin: 0;
+            margin-left: 10px; /* Adiciona um espaçamento entre o título e a logo */
+        }
+
+        #logo {
+            width: 50px; /* Ajuste a largura conforme necessário */
+            height: 50px; /* Ajuste a altura conforme necessário */
+        }
+
+        #content {
+            text-align: center;
+            padding: 20px;
+            opacity: 0; /* Inicia com opacidade 0 */
+            animation: fadeInUp 1s ease-out forwards; /* Adiciona animação de fade-in ao aparecer */
+        }
+
+        section {
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #decision-button {
+            display: inline-block;
+            padding: 20px 40px; /* Aumenta o padding para tornar o botão mais chamativo */
+            background-color: #3498db; /* Cor mais vibrante para o botão */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em; /* Aumenta o tamanho da fonte do botão */
+            transition: background-color 0.3s ease;
+        }
+
+        #decision-button:hover {
+            background-color: #2980b9; /* Cor de destaque ao passar o mouse */
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            opacity: 0; /* Inicia com opacidade 0 */
+            animation: fadeInUp 1s ease-out forwards; /* Adiciona animação de fade-in ao aparecer */
+        }
+
+        .sponsors {
+            display: flex;
+            justify-content: center; /* Centraliza os patrocinadores horizontalmente */
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .sponsor-logo {
+            max-width: 150px;
+            max-height: 100px;
+            margin: 10px;
+            display: block; /* Exibe os logos dos patrocinadores em blocos verticais */
+        }
+
+        #cookie-notice {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #cookie-notice a {
+            color: #3498db;
+        }
+
+        #cookie-notice button {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        #content a img {
+            width: 40px; /* Ajuste conforme necessário */
+            height: 40px; /* Ajuste conforme necessário */
+        }
+
+        .social-icon {
+            display: inline-block;
+            margin: 0 5px; /* Espaçamento entre os ícones */
+        }
+
+        @media only screen and (max-width: 600px) {
+            #content a img {
+                width: 80px; /* Ajuste conforme necessário para telas menores */
+                height: 80px; /* Ajuste conforme necessário para telas menores */
+            }
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2); /* Aumenta a escala ao passar o mouse */
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-image {
+            border-radius: 50%;
+            width: 120px; /* Ajuste conforme necessário */
+            height: 120px; /* Ajuste conforme necessário */
+            object-fit: cover;
+            margin-bottom: 10px; /* Adiciona um espaçamento entre a imagem e o texto */
+            border: 5px solid #3498db; /* Adiciona uma borda ao redor da imagem */
+        }
+
+        .collaborator-list {
+            list-style: none;
+            padding: 0;
+            text-align: center; /* Centraliza a lista de membros principais */
+        }
+
+        .collaborator-list li {
+            margin-bottom: 20px; /* Aumenta o espaçamento entre os membros principais */
+        }
+
+        .collaborator-info {
+            margin-top: 10px; /* Adiciona um espaçamento entre a imagem e o texto */
+        }
+
+        .collaborator-info strong {
+            color: #3498db; /* Cor azul mais vibrante para o nome do membro principal */
+            font-size: 1.5em; /* Aumenta o tamanho da fonte do nome */
+        }
+
+        .collaborator-info p {
+            color: #555; /* Cor do texto mais suave */
+            font-size: 1.2em; /* Aumenta o tamanho da fonte do cargo */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img id="logo" src="src/logo.png" alt="Logo">
+        <h1 id="title">Liquidity DAO</h1>
+    </header>
+
+    <div id="content">
+        <section class="container">
+            <a href="https://app.aragon.org/#/daos/polygon/0x18371e70d7c0cd13e4fd1356d3140b35301455d0"
+                id="decision-button">Últimas Decisões</a>
+            <!-- Adicione conteúdo sobre as últimas decisões da DAO aqui -->
+        </section>
+
+        <section class="container" style="margin-top: 40px;">
+            <h2>Bem-vindo à nossa DAO!</h2>
+            <p>Construímos um ambiente de decisões descentralizadas para promover a colaboração e inovação. Junte-se a
+                nós!</p>
+            <div>
+                <a href="https://t.me/liquiditydao1" target="_blank" class="social-icon"><img src="src/telegram.png"
+                        alt="Telegram Icon" width="100" height="100"></a>
+                <a href="https://twitter.com/seu_link_twitter" target="_blank" class="social-icon"><img src="src/x.png"
+                        alt="Twitter Icon" width="40" height="40"></a>
+            </div>
+        </section>
+
+        <section class="container">
+            <ul class="collaborator-list">
+                <li>
+                    <img src="src/perfil1.png" alt="Profile 1" class="profile-image">
+                    <div class="collaborator-info">
+                        <strong>Josias</strong>
+                        <p>Dev</p>
+                        <p>Marketing</p>
+                        <p>Membro Principal</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="container" style="margin-top: 20px;">
+            <h2>Apoiadores</h2>
+            <div class="sponsors">
+                <!-- Adicione as imagens dos patrocinadores aqui -->
+                <img src="src/aragon.png" alt="Sponsor 1" class="sponsor-logo">
+                <img src="src/swapk.png" alt="Apoiador 2" class="sponsor-logo">
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Liquidity DAO. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Adicione a seção de aviso de cookies -->
+    <div id="cookie-notice">
+        Este site utiliza cookies para garantir a melhor experiência. <a href="#">Saiba mais</a>.
+        <button onclick="aceitarCookies()">Aceitar</button>
+    </div>
+
+    <script>
+        function aceitarCookies() {
+            // Adicione aqui qualquer lógica necessária ao aceitar cookies
+            document.getElementById("cookie-notice").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
